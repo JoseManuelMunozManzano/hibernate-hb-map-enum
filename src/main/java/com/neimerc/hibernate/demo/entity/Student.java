@@ -2,6 +2,8 @@ package com.neimerc.hibernate.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +26,19 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 		
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status")
+	private Status status;		
 	
+	
+	public Student(String firstName, String lastName, String email, Status status) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.status = status;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -56,5 +70,19 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", status=" + status + "]";
+	}	
 	
 }
