@@ -24,17 +24,7 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 	
-	public Student() {
-		super();
-	}
-
-	public Student(String firstName, String lastName, String email) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -65,11 +55,6 @@ public class Student {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
 	
 }
