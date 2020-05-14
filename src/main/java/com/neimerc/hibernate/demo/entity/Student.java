@@ -23,7 +23,7 @@ public class Student {
 	
 	@Column(name = "email")
 	private String email;
-	
+		
 	
 	public Long getId() {
 		return id;
