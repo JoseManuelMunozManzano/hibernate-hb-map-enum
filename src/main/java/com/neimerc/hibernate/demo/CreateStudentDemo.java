@@ -11,7 +11,7 @@ public class CreateStudentDemo {
 
 	public static void main(String[] args) {
 
-		// create factory
+		// create session factory
 		SessionFactory factory = new Configuration()
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Student.class)
@@ -22,14 +22,16 @@ public class CreateStudentDemo {
 		
 		try {
 			// create object
-			Student tempStudent = new Student("José Manuel", "Muñoz Manzano", "xxxx@b.com", Status.ACTIVE);
+			Student tempStudent1 = new Student("José Manuel", "Muñoz Manzano", "xxxx@b.com", Status.ACTIVE);
+			Student tempStudent2 = new Student("Maria", "Perez Lopez", "yyyy@b.com", Status.INACTIVE);
 		
-			// begin a transaction
+			// start a transaction
 			session.beginTransaction();
 		
-			// saves the object
-			System.out.println("Saving the student...");
-			session.persist(tempStudent);
+			// save the object
+			System.out.println("Saving the students...");
+			session.persist(tempStudent1);
+			session.persist(tempStudent2);
 		
 			// commit the transaction
 			session.getTransaction().commit();
