@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.neimerc.hibernate.demo.entity.Status;
 import com.neimerc.hibernate.demo.entity.Student;
 
 public class CreateStudentDemo {
@@ -21,7 +22,7 @@ public class CreateStudentDemo {
 		
 		try {
 			// create object
-			Student tempStudent = new Student("José Manuel", "Muñoz Manzano", "xxxx@b.com");
+			Student tempStudent = new Student("José Manuel", "Muñoz Manzano", "xxxx@b.com", Status.ACTIVE);
 		
 			// begin a transaction
 			session.beginTransaction();
